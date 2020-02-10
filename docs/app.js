@@ -16,7 +16,7 @@ var inputs = {
                         <label class="form-check-label" for="InvHeroOnly${index}">英雄專屬
                         </label>
                     </div>
-                    <input type="text" class="form-control" onkeyup="inputs.setKeyCode(event,this,'InvHotkey${index}')">
+                    <input type="text" class="form-control" onkeypress="inputs.setKeyCode(event,this,'InvHotkey${index}')">
                 </div>
             `;
         }
@@ -35,7 +35,7 @@ var inputs = {
                             <label class="form-check-label" for="ComHeroOnly${i}${j}">英雄專屬
                             </label>
                         </div>
-                        <input type="text" class="form-control" onkeyup="inputs.setKeyCode(event,this,'ComHotkey${i}${j}')">
+                        <input type="text" class="form-control" onkeypress="inputs.setKeyCode(event,this,'ComHotkey${i}${j}')">
                     </div>
                 `;
             }
@@ -45,7 +45,13 @@ var inputs = {
     },
     setKeyCode : function(event,dom,name){
         w3Set[name] = event.keyCode;
-        $(dom).val(event.code);
+        function setKey(dom,key){
+            $(dom).val(key);
+        }
+        window.setInterval(function(){
+            setKey(dom,event.code);
+        }, 200);
+        console.log(event);
     },
     setHeroOnly : function(dom,name){
         w3Set[name] = $(dom)[0].checked ? 1 : 0;
