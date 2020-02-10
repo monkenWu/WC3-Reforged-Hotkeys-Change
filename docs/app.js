@@ -48,7 +48,7 @@ var inputs = {
         function setKey(dom,key){
             $(dom).val(key);
         }
-        window.setInterval(function(){
+        window.setTimeout(function(){
             setKey(dom,event.code);
         }, 200);
         console.log(event);
