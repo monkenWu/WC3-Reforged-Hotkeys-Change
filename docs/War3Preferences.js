@@ -23,8 +23,7 @@ function getFile(dom){
 }
 
 var getW3PerFile = function(set){
-    return `
-[Commandbar Hotkeys 00]
+    return `[Commandbar Hotkeys 00]
 HeroOnly=${set.ComHeroOnly00}
 Hotkey=${set.ComHotkey00}
 MetaKeyState=0
@@ -329,5 +328,6 @@ windowmode=2
 windowwidth=1376
 windowx=240
 windowy=177
-    `;
+
+`;
 }
